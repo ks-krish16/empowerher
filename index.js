@@ -8,7 +8,8 @@ import { fileURLToPath } from 'url';
 import OpenAI from 'openai';
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import axios from 'axios';
-
+import dotenv from 'dotenv';
+dotenv.config();
 // Fix __dirname in ES module
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -26,9 +27,7 @@ app.set("view engine", "ejs");
 
 
    
-const openai = new OpenAI({
-  apiKey: "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",
-});
+
 
 
 
@@ -56,7 +55,7 @@ app.get("/aiml",(req,res)=>{
 
 app.post('/resume', async(req,res)=>{
   const {name,number,email,linkedin,location,workExp,education,project}=req.body;
-  const genAI = new GoogleGenerativeAI("AIzaSyC1j32I0giko-ipdyowy2RCcWVKl5UtSPU"); 
+  const genAI = new GoogleGenerativeAI(process.env.RESUME_KEY); 
   
   try {
       const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
@@ -92,7 +91,7 @@ app.post('/resume', async(req,res)=>{
 
 app.post('/python', async (req, res) => {
   const userMessage = req.body.message;
-  const genAI = new GoogleGenerativeAI("AIzaSyDeut_exL-wIC-2xa0PzGVuUR71mJyG-8g"); 
+  const genAI = new GoogleGenerativeAI(process.env.PYTHON_KEY); 
   
   try {
       const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
@@ -118,7 +117,7 @@ app.post('/python', async (req, res) => {
 
 
 app.post('/javascript', async (req, res) => {
-const genAI = new GoogleGenerativeAI("AIzaSyCGwXRIkEzkR9HlZWFHufkOAJoBt4AwMt8"); 
+const genAI = new GoogleGenerativeAI(process.env.JAVASCRIPT_KEY); 
   const userMessage = req.body.message;
   
   try {
@@ -142,7 +141,7 @@ const genAI = new GoogleGenerativeAI("AIzaSyCGwXRIkEzkR9HlZWFHufkOAJoBt4AwMt8");
 });
 app.post('/aiml', async (req, res) => {
   const userMessage = req.body.message;
-  const genAI = new GoogleGenerativeAI("AIzaSyAYhwANi8H_hJkhywaefBm16Odkw8HMcWA"); 
+  const genAI = new GoogleGenerativeAI(process.env.AIML_KEY); 
   
   try {
       const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
