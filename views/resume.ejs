@@ -77,7 +77,7 @@
         document.getElementById('results').innerText = 'Searching...';
   
         try {
-          const res = await fetch('/jobs', {
+          const res = await fetch('https://empowerher-clgi.onrender.com/resume', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
