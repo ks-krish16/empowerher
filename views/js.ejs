@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Learning Chatbot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="python.css">
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+</style>
+</head>
+<body>
+    <div class="main">
+        
+          <nav>
+            <span><h1>EmpowerHer</h1></span>
+            <span>
+              <a href="/">Home</a>
+              <a href="">About</a>
+              <a href="/services">Services</a>
+              <a href="">Contact</a>
+            </span>
+      
+            <div style="display: none;" id="dropdown" class="relative inline-block text-left">
+              <div>
+                <button type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                  Options
+                  <svg class="-mr-1 size-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+                    <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+              </div>
+      
+              <div class="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                <div class="py-1" role="none">
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-0">About</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-1">Services</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-2">Contact</a>
+                </div>
+              </div>
+            </div>
+      
+            <span><button>Sign in</button></span>
+          </nav>
+          <div class="container">
+          <div class="header">
+            <h1>AI Learning Chatbot</h1>
+          </div>
+      
+          <div id="chat">
+            <div class="message bot-message">
+              <div class="message-sender">AI Assistant</div>
+              <div class="message-content">Hello! I'm your AI learning assistant. How can I help you today?</div>
+            </div>
+      
+            <div class="message user-message p-3 max-w-[80%] mb-4">
+              <div class="flex items-start justify-end">
+                <div>
+                  <span class="font-medium text-primary">You</span>
+                  <p class="text-gray-700 mt-1">Can you be my javascript tutor?</p>
+                </div>
+                <div class="w-8 h-8 flex items-center justify-center bg-primary/10 text-primary rounded-full ml-2">
+                  <i class="ri-user-line"></i>
+                </div>
+              </div>
+            </div>
+      
+            <div class="message bot-message p-3 max-w-[80%] mb-4">
+              <div class="flex items-start">
+                <div class="w-8 h-8 flex items-center justify-center bg-secondary/10 text-secondary rounded-full mr-2">
+                  <i class="ri-robot-line"></i>
+                </div>
+                <div>
+                  <span class="font-medium text-secondary">AI Assistant</span>
+                  <p class="text-gray-700 mt-1">Sure!</p>
+                  <p class="text-gray-700 mt-2">Enter start to start your learning</p>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <form id="chatForm">
+            <input type="text" id="message" placeholder="Ask something..." required>
+            <button type="submit">Send</button>
+          </form>
+      
+          <div class="footer">
+            <p>Ask me anything about javascript!</p>
+          </div>
+        </div>
+      </div>
+          
+<script>
+const form = document.getElementById('chatForm');
+const chat = document.getElementById('chat');
+form.addEventListener('submit', async (e) => {
+e.preventDefault();
+const userMessage = document.getElementById('message').value;
+if (!userMessage.trim()) return;
+// Add user message to chat
+const userDiv = document.createElement('div');
+userDiv.className = 'message user-message';
+userDiv.innerHTML = `
+<div class="message-sender">You</div>
+<div class="message-content">${userMessage}</div>
+`;
+chat.appendChild(userDiv);
+// Clear input
+document.getElementById('message').value = '';
+// Scroll to bottom
+chat.scrollTop = chat.scrollHeight;
+// Show typing indicator
+const typingDiv = document.createElement('div');
+typingDiv.className = 'message bot-message p-3 max-w-[80%] mb-4 typing-indicator';
+typingDiv.innerHTML = `
+<div class="flex items-start">
+<div class="w-8 h-8 flex items-center justify-center bg-secondary/10 text-secondary rounded-full mr-2">
+<i class="ri-robot-line"></i>
+</div>
+<div>
+<span class="font-medium text-secondary">AI Assistant</span>
+<p class="text-gray-700 mt-1">
+<span class="inline-flex gap-1">
+<span class="animate-bounce">●</span>
+<span class="animate-bounce" style="animation-delay: 0.2s">●</span>
+<span class="animate-bounce" style="animation-delay: 0.4s">●</span>
+</span>
+</p>
+</div>
+</div>
+`;
+chat.appendChild(typingDiv);
+chat.scrollTop = chat.scrollHeight;
+try {
+// Make API request
+const res = await fetch('http://localhost:8080/python', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/json'
+},
+body: JSON.stringify({ message: userMessage })
+});
+const data = await res.json();
+// Remove typing indicator
+chat.removeChild(typingDiv);
+// Add bot response
+const botDiv = document.createElement('div');
+botDiv.className = 'message bot-message';
+botDiv.innerHTML = `
+<div class="message-sender">AI Assistant</div>
+<div class="message-content">${data.reply}</div>
+`;
+chat.appendChild(botDiv);
+} catch (err) {
+// Remove typing indicator
+chat.removeChild(typingDiv);
+// Add error message
+const errorDiv = document.createElement('div');
+errorDiv.className = 'message bot-message';
+errorDiv.innerHTML = `
+<div class="message-sender">Error</div>
+<div class="message-content">Sorry, I couldn't process your request. Please try again later.</div>
+`;
+chat.appendChild(errorDiv);
+}
+// Scroll to bottom
+chat.scrollTop = chat.scrollHeight;
+});
+// Focus input on page load
+document.addEventListener('DOMContentLoaded', () => {
+document.getElementById('message').focus();
+});
+</script>
+</body>
+</html>

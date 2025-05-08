@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="game.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Birthstone&family=Chocolate+Classical+Sans&family=Jua&family=Knewave&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pixelify+Sans:wght@400..700&family=Staatliches&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main">
+      <nav>
+        <span><h1>EmpowerHer</h1></span>
+        <span>
+            <a href="/">Home</a>
+            <a href="">About</a>
+            <a href="services">Services</a>
+            <a href="">Contact</a>
+        </span>
+        <div style="display: none;" id="dropdown" class="relative inline-block text-left">
+          <div>
+            <button type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true">
+              Options
+              <svg class="-mr-1 size-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+                <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+              </svg>
+            </button>
+          </div>
+        
+
+          <div  class="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+            <div class="py-1" role="none">
+              <!-- Active: "bg-gray-100 text-gray-900 outline-hidden", Not Active: "text-gray-700" -->
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-0">About</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-1">Services</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-2">Contact</a>
+            </div>
+          
+          </div>
+        </div>
+        <span><button>Sign in</button></span>
+
+    </nav>
+        <div class="game-box">
+            
+            <div id="scene-container">
+              <p class="scene-text" id="scene-text"></p>
+              <div class="choices">
+                <button id="choiceA"></button>
+                <button id="choiceB"></button>
+              </div>
+              <div class="stats">
+                <p>Confidence: <span id="confidence">70</span></p>
+                <p>Career Progress: <span id="career">50</span></p>
+   
+                <p>Mental Well-being: <span id="wellbeing">50</span></p>
+              </div>
+            </div>
+        </div>
+    </div>
+        
+<script src="game.js"></script>    
+</body>
+</html>
