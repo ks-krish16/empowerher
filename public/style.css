@@ -111,7 +111,7 @@ nav button:hover {
 
 .logo {
   font-size: 4rem;
-
+  color: rgb(131, 130, 130);
   line-height: 1.1;
 
   position:absolute;
@@ -138,7 +138,7 @@ nav button:hover {
   max-width: 600px;
   opacity: 0.9;
   margin-top: 550px;
-
+  color: rgb(131, 130, 130);
   z-index: 2;
   animation: fadeIn 1s ease-out 0.5s both;
 }
