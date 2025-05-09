@@ -54,7 +54,7 @@ app.get("/aiml",(req,res)=>{
 })
 
 app.post('/resume', async(req,res)=>{
-  const {name,number,email,linkedin,location,workExp,education,project}=req.body;
+  const {name,number,email,linkedin,location,workExp,education,project,skills}=req.body;
   const genAI = new GoogleGenerativeAI(process.env.RESUME_KEY); 
   
   try {
@@ -69,6 +69,7 @@ app.post('/resume', async(req,res)=>{
           email=${email}
           linkedin profile link= ${linkedin}
           location(city,state)=${location}
+          skills= ${skills}
           work experience= ${workExp}
           education= ${education}
           projects=${project}
