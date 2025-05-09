@@ -53,6 +53,7 @@
       <input type="text" id="email" placeholder="Emial adress">
       <input type="text" id="linkedin" placeholder="Linkedin profile link">
       <input type="text" id="city" placeholder="location(city,state)">
+      <input type="text" id="skills" placeholder="skills">
       <textarea id="work-exp" placeholder="work experience"></textarea>
       <textarea id="education" placeholder="Education"></textarea>
       <textarea id="project" placeholder="projects"></textarea>
@@ -69,6 +70,7 @@
         const email = document.getElementById('email').value;
         const linkedin = document.getElementById('linkedin').value;
         const location = document.getElementById('city').value;
+        const skills = document.getElementById('skills').value;
         const workExp = document.getElementById('work-exp').value;
         const education = document.getElementById('education').value;
         const project = document.getElementById('project').value;
@@ -82,7 +84,7 @@
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ name,number,email,linkedin,location,workExp,education,project })
+            body: JSON.stringify({ name,number,email,linkedin,location,workExp,education,project,skills })
           });
   
           const data = await res.json();
