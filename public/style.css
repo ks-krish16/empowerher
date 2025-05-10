@@ -145,6 +145,7 @@ nav button:hover {
 
 
 #container {
+  image-rendering: pixelated;
   margin-top: 100px;
   position: fixed;
   top: 50%;
