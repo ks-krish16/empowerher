@@ -27,7 +27,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  max-width: 1440px;
+  
   background: rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(10px);
   z-index: 1000;
